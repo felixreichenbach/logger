@@ -41,34 +41,40 @@ With the DoCommand() you can trigger log entries at different levels.
 }
 ```
 
-## Viam Log Configuration
+## Viam Log Configuration Possibilities
 
-- Viam Server
+### Via Viam Server
 
-  -log-file string
-  write logs to a file with log rotation
-  `-log-file log.txt`
+Viam Server has a variety of interesting settings for debugging which you can set directly when starting the service. 
+Two options you will likely find useful:
 
-  -debug
-  Outputs debug log messages and also sends them to app.viam.com
+- `-log-file <file name>` Write logs to a file with log rotation
+- `-debug` Outputs debug log messages and also sends them to app.viam.com
 
-- Configuration
-  https://docs.viam.com/operate/reference/viam-server/?source=searchResultItem#logging
+### Via Machine Configuration
 
-- - top level / machine
-    Easiest option add `"debug":true` to the top level of your machine configuration. Server automatically set's log level accordingly on startup. Will require restart! Will overwrite all subsettings!
-    https://docs.viam.com/operate/reference/viam-server/?source=searchResultItem#debugging
+Besides directly adding debug logging through the Viam Server binary, further options are available through the machine configuration.
 
-    top level `log` array with regex pattern or level definition
+#### Top Level / Machine
 
-- - Module
+1. Add `"debug":true` to the top level of your machine JSON configuration. This is analog adding the Viam server startup parameter. This will require a Viam server restart and overwrites all subsettings!
+2. For more granularity you can use the top level "log" element:
+   ```JSON
+   "log":[{
+     "pattern": "rdk.services.*",
+     "level": "debug"}]
+   ``` 
+   
+
+#### Module
     `"log_level":"debug"`
+     https://docs.viam.com/operate/reference/viam-server/?source=searchResultItem#debugging
 
-- - Component
+#### Component
     via menu or through resource json config
     `"log_configuration":{"level": "debug"}`
 
-Log Deduplication
+### Log Deduplication
 https://docs.viam.com/operate/reference/viam-server/?source=searchResultItem#disable-log-deduplication
 At root level in the machine config:
 `"disable_log_deduplication": true`
