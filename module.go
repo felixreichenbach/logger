@@ -89,10 +89,32 @@ func (s *myLoggerMyLogger) Name() resource.Name {
 }
 
 func (s *myLoggerMyLogger) Readings(ctx context.Context, extra map[string]interface{}) (map[string]interface{}, error) {
-	panic("not implemented")
+	s.logger.Debugf("Debug message: %s", s.name)
+	s.logger.Infof("Info message: %s", s.name)
+	s.logger.Warnf("Warning message: %s", s.name)
+	s.logger.Errorf("Error message: %s", s.name)
+	//s.logger.Fatalf("Fatal message: %s", s.name) --> This will crash the module! https://medium.com/@emusbeny/when-to-use-log-fatalf-vs-log-errorf-in-go-a-friendly-guide-4ec574b50410
+	return map[string]interface{}{}, nil
 }
 func (s *myLoggerMyLogger) DoCommand(ctx context.Context, cmd map[string]interface{}) (map[string]interface{}, error) {
-	panic("not implemented")
+	if cmd == nil {
+		return nil, errUnimplemented
+	}
+	switch cmd["message"] {
+	case "debug":
+		s.logger.Debugf("Debug command received: %v", cmd)
+	case "info":
+		s.logger.Infof("Info command received: %v", cmd)
+	case "warn":
+		s.logger.Warnf("Warning command received: %v", cmd)
+	case "error":
+		s.logger.Errorf("Error command received: %v", cmd)
+	case "fatal":
+		s.logger.Fatalf("Fatal command received: %v", cmd)
+	default:
+		s.logger.Warnf("Unknown command received: %v", cmd)
+	}
+	return cmd, nil
 }
 
 func (s *myLoggerMyLogger) Close(context.Context) error {
