@@ -65,7 +65,8 @@ To [enable debug logs for a whole module](https://docs.viam.com/operate/referenc
 
 #### Component Level
 
-To enable debug log level for a single component you can either enable it via context menue or add this to the component JSON config:
+To enable debug log level for a single component you can either enable it via context menue or add this to the component JSON config. 
+**Module / component restart required**
 
 ```json
 "log_configuration":{
@@ -77,6 +78,7 @@ To enable debug log level for a single component you can either enable it via co
 
 [Viam-server deduplicates log message](https://docs.viam.com/operate/reference/viam-server/?source=searchResultItem#disable-log-deduplication) that are deemed noisy. A log is deemed noisy if it has been output 3 times in the past 10 seconds.
 As this can complicate debugging issues, you can disable it as follows.
+
 Add the following line to the root level in the machine config:
 ```json
 "disable_log_deduplication": true
