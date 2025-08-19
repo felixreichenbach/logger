@@ -93,7 +93,7 @@ func (s *myLoggerMyLogger) Readings(ctx context.Context, extra map[string]interf
 	s.logger.Infof("Info message: %s", s.name)
 	s.logger.Warnf("Warning message: %s", s.name)
 	s.logger.Errorf("Error message: %s", s.name)
-	//s.logger.Fatalf("Fatal message: %s", s.name) --> This will crash the module! https://medium.com/@emusbeny/when-to-use-log-fatalf-vs-log-errorf-in-go-a-friendly-guide-4ec574b50410
+	//s.logger.Fatalf("Fatal message: %s", s.name) --> This will log a fatal error and then exit the program! https://medium.com/@emusbeny/when-to-use-log-fatalf-vs-log-errorf-in-go-a-friendly-guide-4ec574b50410
 	return map[string]interface{}{"messages": "logged"}, nil
 }
 func (s *myLoggerMyLogger) DoCommand(ctx context.Context, cmd map[string]interface{}) (map[string]interface{}, error) {
