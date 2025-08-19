@@ -38,14 +38,20 @@ Besides directly adding debug logging through the Viam Server binary, further op
 
 #### Machine Level
 
-1. Add `"debug":true` to the top level of your machine JSON configuration. This is analog adding the Viam server startup parameter. This will require a Viam server restart and overwrites all subsettings!
+Machine level log settings will overwrite subsettings.
+
+1. Add `"debug":true` to the top level of your machine JSON configuration. This is analog adding the Viam server startup parameter. No Viam server restart required.
 2. For more granularity you can use the top level "log" element:
    ```JSON
     "log": [
-        {
-            "pattern": "rdk.services.*",
-            "level": "debug"
-        }
+     {
+       "pattern": "rdk.services.*", // TODO: Haven't properly understood the behavior yet
+       "level": "debug"
+     },
+     {
+       "pattern": "<module name>", // Works fine
+       "level": "debug"
+     }
     ]
    ``` 
 
