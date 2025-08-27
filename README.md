@@ -26,7 +26,7 @@ With the DoCommand() you can trigger log entries at different levels.
 
 ### Via Viam Server
 
-Viam Server has a variety of interesting settings for debugging which you can set directly when starting the service. 
+Viam Server has a variety of interesting settings for debugging which you can set directly when starting the service.
 Two options you will likely find useful:
 
 - `-log-file <file name>` Write logs to a file with log rotation
@@ -53,7 +53,7 @@ Machine level log settings will overwrite subsettings.
        "level": "debug"
      }
     ]
-   ``` 
+   ```
 
 #### Module Level
 
@@ -65,7 +65,7 @@ To [enable debug logs for a whole module](https://docs.viam.com/operate/referenc
 
 #### Component Level
 
-To enable debug log level for a single component you can either enable it via context menue or add this to the component JSON config. 
+To enable debug log level for a single component you can either enable it via context menue or add this to the component JSON config.
 **Module / component restart required**
 
 ```json
@@ -80,7 +80,15 @@ To enable debug log level for a single component you can either enable it via co
 As this can complicate debugging issues, you can disable it as follows.
 
 Add the following line to the root level in the machine config:
+
 ```json
 "disable_log_deduplication": true
 ```
 
+## Release a new version
+
+```shell
+git tag x.x.x
+
+git push origin --tag x.x.x
+```
