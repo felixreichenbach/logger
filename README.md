@@ -89,11 +89,11 @@ You can test this functionality by adding the `username` to the above filter str
 logger -p user.warning "My message!"
 ```
 
-### DoCommand
+## DoCommand
 
 With the DoCommand() you can trigger log entries at different levels.
 
-#### Example DoCommand
+**Example DoCommand:**
 
 ```json
 {
