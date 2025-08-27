@@ -86,6 +86,24 @@ Add the following line to the root level in the machine config:
 "disable_log_deduplication": true
 ```
 
+## Unix System Log Forwarding
+
+This is handled by the Viam agent and can be enable with the following sample configuration:
+
+```json
+  "agent": {
+    "system_configuration": {
+      "forward_system_logs": "kernel,NetworkManager,tailscaled"
+    }
+  }
+```
+You can test this functionality by adding the `username` to the above filter string and then log messages from a shell as follows:
+
+```shell
+logger -p user.warning "My message!"
+```
+
+
 ## Release a new version
 
 ```shell
