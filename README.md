@@ -23,9 +23,7 @@ With the DoCommand() you can trigger log entries at different levels.
 }
 ```
 
-## Viam Log Configuration Possibilities
-
-### Via Viam Server
+### Viam Server Logging
 
 Viam Server has a variety of interesting settings for debugging which you can set directly when starting the service.
 Two options you will likely find useful:
@@ -33,11 +31,11 @@ Two options you will likely find useful:
 - `-log-file <file name>` Write logs to a file with log rotation
 - `-debug` Outputs debug log messages and also sends them to app.viam.com
 
-### Via Machine Configuration
+### Viam JSON Logging Configuration
 
 Besides directly adding debug logging through the Viam Server binary, further options are available through the machine configuration.
 
-#### Machine Level
+### Machine Level
 
 Machine level log settings will overwrite subsettings.
 
@@ -56,7 +54,7 @@ Machine level log settings will overwrite subsettings.
     ]
    ```
 
-#### Module Level
+### Module Level
 
 To [enable debug logs for a whole module](https://docs.viam.com/operate/reference/viam-server/?source=searchResultItem#debugging) you can add the following to your module JSON configuration:
 
@@ -64,7 +62,7 @@ To [enable debug logs for a whole module](https://docs.viam.com/operate/referenc
 "log_level": "debug"
 ```
 
-#### Component Level
+### Component Level
 
 To enable debug log level for a single component you can either enable it via context menue or add this to the component JSON config.
 **Module / component restart required**
