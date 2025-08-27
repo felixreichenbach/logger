@@ -1,13 +1,13 @@
 {
   "$schema": "https://dl.viam.dev/module.schema.json",
-  "module_id": "felixr:my-logger",
+  "module_id": "felix-viam:my-logger",
   "visibility": "public",
   "url": "https://github.com/felixreichenbach/my-logger",
   "description": "Modular sensor component: my-logger",
   "models": [
     {
       "api": "rdk:component:sensor",
-      "model": "felixr:my-logger:my-logger",
+      "model": "felix-viam:my-logger:my-logger",
       "short_description": "Provide a short (100 characters or less) description of this model here",
       "markdown_link": "README.md#model-felixrmy-loggermy-logger"
     }
