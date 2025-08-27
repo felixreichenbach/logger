@@ -10,7 +10,7 @@ import (
 )
 
 var (
-	MyLogger         = resource.NewModel("felixr", "my-logger", "my-logger")
+	MyLogger         = resource.NewModel("felix-viam", "my-logger", "my-logger")
 	errUnimplemented = errors.New("unimplemented")
 )
 
