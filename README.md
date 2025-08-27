@@ -1,8 +1,8 @@
-# Module my-logger
+# Module `logger` 
 
 This is a simple module to demonstrate Viam logging capabilities.
 
-## Model felixr:my-logger:my-logger
+## Model felix-viam:logger:my-logger
 
 A simple sensor component which logs "debug", "info", "warning" and "error" messages upon calling the Readings() API.
 
