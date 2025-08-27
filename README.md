@@ -8,20 +8,8 @@ A simple sensor component which logs "debug", "info", "warning" and "error" mess
 
 ### Configuration
 
-This component doesn't require any configuration.
+This module/component doesn't require any configuration.
 However for simplicity reasons you may want to leverage [this fragment](https://app.viam.com/fragment/a959ff1c-11b4-4dd2-9580-c6721a53dc2b/configure/builder) which provides a ready made demo setup.
-
-### DoCommand
-
-With the DoCommand() you can trigger log entries at different levels.
-
-#### Example DoCommand
-
-```json
-{
-  "message": "info" // one of [debug, info, warn, error or fatal]
-}
-```
 
 ### Viam Server Logging
 
@@ -99,6 +87,18 @@ You can test this functionality by adding the `username` to the above filter str
 
 ```shell
 logger -p user.warning "My message!"
+```
+
+### DoCommand
+
+With the DoCommand() you can trigger log entries at different levels.
+
+#### Example DoCommand
+
+```json
+{
+  "message": "info" // one of [debug, info, warn, error or fatal]
+}
 ```
 
 
